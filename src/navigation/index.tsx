@@ -7,8 +7,8 @@ import AuthNavigator from './AuthNavigator';
 const Index: React.FC = () => {
   // const {userInfo, userToken} = useSelector((state: RootState) => state.user);
   // if (userInfo && userToken) {
-    //return <ApplicationNavigator />;
- // }
+  //return <ApplicationNavigator />;
+  // }
   return <AuthNavigator />;
 };
 

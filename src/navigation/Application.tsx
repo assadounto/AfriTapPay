@@ -8,16 +8,15 @@ const Stack = createStackNavigator();
 
 const ApplicationNavigator: React.FC = () => {
   return (
-
-      <Stack.Navigator
-        screenOptions={{
-          headerShown: false,
-          cardStyle: {
-            backgroundColor: '#fff',
-          },
-        }}>
-        <Stack.Screen name="main" component={Main} />
-      </Stack.Navigator>
+    <Stack.Navigator
+      screenOptions={{
+        headerShown: false,
+        cardStyle: {
+          backgroundColor: '#fff',
+        },
+      }}>
+      <Stack.Screen name="main" component={Main} />
+    </Stack.Navigator>
   );
 };
 

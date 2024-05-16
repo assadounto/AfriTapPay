@@ -1,4 +1,4 @@
 // types/index.ts
 
 export * from './reduxTypes';
-export *from './common'
+export * from './common';

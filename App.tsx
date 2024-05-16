@@ -1,20 +1,17 @@
-
 import Index from 'navigation';
-import NavigatorIndex from 'navigation';
 import React from 'react';
-import { NavigationContainer } from '@react-navigation/native';
-import { SafeAreaView } from 'react-native';
-
-
+import {NavigationContainer} from '@react-navigation/native';
+import {ThemeProvider} from '@rneui/themed';
+import {theme} from 'theme/Theme';
 
 function App(): React.JSX.Element {
   return (
-   <NavigationContainer>
-      <Index />
-   </NavigationContainer>
-   
+    <ThemeProvider theme={theme}>
+      <NavigationContainer>
+        <Index />
+      </NavigationContainer>
+    </ThemeProvider>
   );
 }
-
 
 export default App;
