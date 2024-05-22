@@ -1,7 +1,9 @@
+import { Button } from '@rneui/base';
 import React, {useState} from 'react';
 import {View, Text, StyleSheet, Image, ImageBackground} from 'react-native';
 import AppIntroSlider from 'react-native-app-intro-slider';
 import {SlideTypes} from 'types';
+import { useTheme,useThemeMode ,makeStyles} from '@rneui/themed';
 
 const slides = [
   {
@@ -27,7 +29,8 @@ const slides = [
 
 const WalkThroughSlides: React.FC = () => {
   const [showRealApp, setShowRealApp] = useState<boolean>(false);
-
+    const { mode, setMode } = useThemeMode();
+    const { theme, updateTheme } = useTheme();
   const _renderItem = ({item}: {item: SlideTypes}) => {
     return (
       <View style={styles.slide}>
@@ -47,9 +50,32 @@ const WalkThroughSlides: React.FC = () => {
   };
 
   return (
-    <AppIntroSlider renderItem={_renderItem} data={slides} onDone={_onDone} />
+    <><AppIntroSlider renderItem={_renderItem} data={slides} onDone={_onDone} />
+    <Text style={{color:theme.colors.primary}}>
+        richmond-{mode}
+        </Text>
+          <Button title={'SetTheme'} onPress={() => updateTheme({ darkColors: { primary: 'red' } })} />
+          <Button title={mode} onPress={() => setMode('dark'||'light')} />
+        </>
   );
 };
+
+const useStyles = makeStyles((theme) => ({
+    container: {
+        background: theme.colors.white,
+        width: '100%'  
+    },
+    text: {
+        color: theme.colors.primary,
+    },
+    button: {
+        color: theme.colors.primary,
+        height: 50
+    },
+}));
+
+
+
 
 const styles = StyleSheet.create({
   slide: {
